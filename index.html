@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les sources du droit national</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap">
+<style>
+/* ── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Fiche d'exercices en thème clair : blocs = séances, cartes dépliables, corrections masquables */
+:root {
+  --bg:        #f4f6f9;
+  --surface:   #ffffff;
+  --card:      #ffffff;
+  --border:    #dfe3ea;
+  --border-hi: #b9c0ce;
+  --text:      #1d2230;
+  --text-dim:  #5c6476;
+  --accent:    #b97d00;
+  --accent-bg: #fff6df;
+  --green:     #1b8047;
+  --green-bg:  #ecf7f0;
+  --green-bd:  #c9e6d4;
+  --green-dk:  #12552f;
+  --red:       #c23b3b;
+  --blue:      #2d69ad;
+  --blue-bg:   #edf3fb;
+  --purple:    #6f45ad;
+  --font-head: 'Syne', 'Trebuchet MS', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --radius:    10px;
+  color-scheme: light;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── HEADER ──────────────────────────────────────────────── */
+.site-header {
+  background: linear-gradient(135deg, #ffffff 0%, #eef2f8 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 44px 20px 32px;
+  text-align: center;
+}
+.site-header .kicker {
+  display: inline-block;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 3px;
+  margin-bottom: 18px;
+}
+.site-header h1 {
+  font-family: var(--font-head);
+  font-size: clamp(24px, 6vw, 38px);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.site-header .sub {
+  color: var(--text-dim);
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 540px;
+  margin: 0 auto 20px;
+}
+.legende {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 0 auto 22px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+
+/* ── NAV ANCRES ──────────────────────────────────────────── */
+.nav-anchors {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.nav-anchors a {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 14px;
+  text-decoration: none;
+  transition: border-color .15s, color .15s;
+}
+.nav-anchors a:hover, .nav-anchors a:focus-visible { border-color: var(--accent); color: var(--accent); }
+
+/* ── CONTENEUR PRINCIPAL ─────────────────────────────────── */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 36px 18px 80px;
+}
+
+/* ── TITRE DE BLOC ───────────────────────────────────────── */
+.bloc-titre {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 52px 0 6px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.bloc-titre:first-child { margin-top: 0; }
+.bloc-titre .icone { font-size: 26px; flex-shrink: 0; }
+.bloc-titre h2 {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.bloc-titre h2 small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+/* ── MÉMO ────────────────────────────────────────────────── */
+.memo {
+  background: var(--green-bg);
+  border: 1px solid var(--green-bd);
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin: 16px 0 24px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.memo .memo-titre {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.memo code {
+  display: block;
+  background: #ffffff;
+  border: 1px solid var(--green-bd);
+  border-radius: 5px;
+  padding: 8px 12px;
+  color: var(--green-dk);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13.5px;
+  margin: 5px 0;
+}
+.memo .note { color: var(--text-dim); font-size: 13px; margin-top: 8px; }
+
+/* ── CARTE EXERCICE ──────────────────────────────────────── */
+.exo-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: border-color .15s;
+}
+.exo-card:hover { border-color: var(--border-hi); }
+
+.exo-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.exo-header::-webkit-details-marker { display: none; }
+.exo-header:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.exo-num {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  min-width: 40px;
+}
+.badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.badge-1 { background: #e9f6ee; color: var(--green); border: 1px solid #bfe2cc; }
+.badge-2 { background: var(--accent-bg); color: #8a5d00; border: 1px solid #efd798; }
+.badge-3 { background: #fbeaea; color: var(--red); border: 1px solid #efc4c4; }
+.badge-exam { background: #f2ecfa; color: var(--purple); border: 1px solid #d9c9ef; }
+
+.exo-titre-txt {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.chevron { color: var(--text-dim); font-size: 13px; flex-shrink: 0; transition: transform .2s; }
+details[open] .chevron { transform: rotate(180deg); }
+
+/* ── CORPS DE L'EXERCICE ─────────────────────────────────── */
+.exo-body { padding: 0 16px 20px; border-top: 1px solid var(--border); }
+
+.contexte {
+  background: var(--blue-bg);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 16px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.contexte strong { color: var(--text); }
+
+.table-wrap { overflow-x: auto; margin: 12px 0; }
+.tableau-donnees {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: var(--surface);
+}
+.tableau-donnees th {
+  background: #eef1f6;
+  color: var(--text-dim);
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.tableau-donnees td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+.tableau-donnees tr:last-child td { border-bottom: none; }
+.tableau-donnees td.num { font-weight: 700; color: var(--text); white-space: nowrap; }
+
+.questions { margin: 18px 0 0; }
+.question { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+.question .q-num {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 11px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.question p { font-size: 14px; margin: 0; min-width: 0; }
+
+/* ── COUP DE POUCE ───────────────────────────────────────── */
+.ordre-grandeur {
+  background: var(--accent-bg);
+  border: 1px solid #efd798;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #6e4b00;
+  margin: 12px 0 0;
+}
+.ordre-grandeur::before { content: "💡 "; }
+
+/* ── BOUTON CORRECTION ───────────────────────────────────── */
+.btn-corrige {
+  background: var(--surface);
+  border: 1px solid var(--border-hi);
+  border-radius: 6px;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 16px;
+  margin-top: 18px;
+  transition: all .15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-corrige:hover, .btn-corrige:focus-visible { border-color: var(--green); color: var(--green); }
+
+/* ── CORRECTION ──────────────────────────────────────────── */
+.correction {
+  display: none;
+  background: var(--green-bg);
+  border: 1px solid var(--green-bd);
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.correction.visible { display: block; }
+.correction .corr-etape {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--green-bd);
+}
+.correction .corr-etape:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.correction .c-num {
+  display: inline-block;
+  background: var(--green);
+  color: #ffffff;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 18px;
+  margin-right: 6px;
+}
+.correction code {
+  display: block;
+  background: #ffffff;
+  border: 1px solid var(--green-bd);
+  border-radius: 4px;
+  padding: 6px 12px;
+  color: var(--green-dk);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  margin: 5px 0;
+}
+.correction .res { font-family: var(--font-head); font-weight: 700; color: var(--text); }
+.correction .conclu { margin-top: 8px; font-size: 13.5px; color: #2c6244; font-style: italic; }
+.correction .tableau-corr { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0; background: #ffffff; }
+.correction .tableau-corr th {
+  background: #dff0e6;
+  color: var(--green-dk);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  text-align: left;
+}
+.correction .tableau-corr td { padding: 6px 10px; border-bottom: 1px solid var(--green-bd); color: #24402f; vertical-align: top; }
+.correction .tableau-corr td.val { font-weight: 700; color: var(--green); }
+
+/* ── SÉPARATEUR ──────────────────────────────────────────── */
+hr.section-sep { border: none; border-top: 1px solid var(--border); margin: 54px 0 0; }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 20px;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 12px;
+  background: var(--surface);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 520px) {
+  .exo-titre-txt { font-size: 13.5px; }
+  .contexte { font-size: 13.5px; }
+  .tableau-donnees { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="kicker">🥖 Gestion appliquée – CAP boulanger</div>
+  <h1>Les sources<br>du droit national</h1>
+  <p class="sub">Chapitre 16. 18 exercices en 5 séances, avec la boulangerie Le Fournil de Léa. Ouvre un exercice, réponds sur ton cahier, puis vérifie avec la correction.</p>
+  <div class="legende">
+    <span class="badge badge-1">⬆ décollage</span> je découvre
+    <span class="badge badge-2">◆ intermédiaire</span> j'applique
+    <span class="badge badge-exam">★ examen</span> je m'entraîne
+  </div>
+  <nav class="nav-anchors">
+    <a href="#pouvoirs">1 · Qui fait le droit ?</a>
+    <a href="#constitution">2 · La Constitution</a>
+    <a href="#loi">3 · La loi</a>
+    <a href="#autres">4 · Autres sources et hiérarchie</a>
+    <a href="#examen">5 · Sujets type examen</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOC 1 – QUI FAIT LE DROIT ? (séance 1)
+══════════════════════════════════════════════════════════ -->
+<div class="bloc-titre" id="pouvoirs">
+  <span class="icone">🏛️</span>
+  <h2><small>Séance 1 · 1 h</small>Bloc 1 – Qui fait le droit ?</h2>
+</div>
+
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Droit = ensemble des règles qui organisent la vie des membres d'une même société.</code>
+  <code>Pouvoir législatif = le Parlement (Assemblée nationale + Sénat) : il rédige et vote les lois, il contrôle le Gouvernement.</code>
+  <code>Pouvoir exécutif = le Président de la République + le Gouvernement (premier ministre et ministres) : il prépare des lois et les fait appliquer.</code>
+  <code>Pouvoir judiciaire = les tribunaux (juges et magistrats) : ils contrôlent l'application des lois et sanctionnent.</code>
+  <p class="note">La séparation des pouvoirs est prévue par la Constitution et par l'article 16 de la Déclaration des droits de l'homme et du citoyen de 1789 (manuel, partie 1 et document 1).</p>
+</div>
+
+<!-- EX 1 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 1</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Trois pouvoirs, trois rôles</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Hugo est apprenti au <strong>Fournil de Léa</strong>. Pendant la pause, Léa, la patronne, lui explique : « en France, ceux qui votent les lois ne sont pas ceux qui les font appliquer, ni ceux qui jugent ». Elle lui montre le <strong>document 1 du manuel</strong> : les trois pouvoirs en France.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Nomme les trois pouvoirs.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Indique qui représente chaque pouvoir.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Donne le rôle principal de chaque pouvoir.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> législatif = la loi, exécutif = exécuter (faire appliquer), judiciaire = juger.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> Le pouvoir législatif, le pouvoir exécutif et le pouvoir judiciaire.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> et <span class="c-num">3</span> D'après le document 1 :
+        <table class="tableau-corr">
+          <tr><th>Pouvoir</th><th>Qui le représente ?</th><th>Rôle</th></tr>
+          <tr><td>Législatif</td><td class="val">Le Parlement : Sénat + Assemblée nationale</td><td>Rédiger des lois (propositions de loi), voter les lois, contrôler le Gouvernement</td></tr>
+          <tr><td>Exécutif</td><td class="val">Le Président de la République + le Gouvernement (premier ministre et ministres)</td><td>Rédiger des lois (projets de loi), faire appliquer les lois</td></tr>
+          <tr><td>Judiciaire</td><td class="val">Les tribunaux : juges et magistrats</td><td>Contrôler l'application des lois, sanctionner leur non-respect</td></tr>
+        </table>
+        <p class="conclu">Chaque pouvoir a son rôle : c'est la séparation des pouvoirs.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 2 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 2</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">La radio du magasin</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Au magasin, Inès, la vendeuse, écoute la radio. Elle entend parler d'une députée, d'un sénateur, du premier ministre et de la ministre de l'agriculture. Elle demande à Hugo : « ils font tous partie du Gouvernement ? » (questions 1 et 2 du manuel).
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Indique qui compose le Gouvernement.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Cite les deux institutions qui forment le Parlement.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Classe les quatre personnes entendues par Inès : Parlement ou Gouvernement ?</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> les députés siègent à l'Assemblée nationale, les sénateurs au Sénat.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> <span class="res">Le premier ministre et les ministres.</span> (corrigé du manuel, question 1)
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> <span class="res">L'Assemblée nationale et le Sénat.</span> (corrigé du manuel, question 2)
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span>
+        <table class="tableau-corr">
+          <tr><th>Personne</th><th>Institution</th></tr>
+          <tr><td>La députée</td><td class="val">Parlement (Assemblée nationale)</td></tr>
+          <tr><td>Le sénateur</td><td class="val">Parlement (Sénat)</td></tr>
+          <tr><td>Le premier ministre</td><td class="val">Gouvernement</td></tr>
+          <tr><td>La ministre de l'agriculture</td><td class="val">Gouvernement</td></tr>
+        </table>
+        <p class="conclu">Non, Inès : ils ne font pas tous partie du Gouvernement.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 3 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 3</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Projet ou proposition de loi ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Karim, ouvrier boulanger, imagine deux textes sur les boulangeries (exemples inventés pour l'exercice, questions 3 et 4 du manuel) :<br>
+      <strong>Texte A</strong> : le ministre chargé du commerce prépare un texte. Il est adopté en Conseil des ministres puis déposé au Parlement.<br>
+      <strong>Texte B</strong> : un député, ancien boulanger, rédige lui-même un texte et le dépose à l'Assemblée nationale.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Explique ce qu'est un « projet de loi ».</p></div>
+      <div class="question"><span class="q-num">2</span><p>Indique si le texte A et le texte B sont des projets ou des propositions de loi.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Indique qui va voter ces textes.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> projet = vient du Gouvernement ; proposition = vient d'un député ou d'un sénateur.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> Corrigé du manuel : c'est un texte de loi rédigé par le pouvoir exécutif (Gouvernement).
+        <p class="conclu">Précision : le corrigé parle d'« une loi rédigée par le pouvoir exécutif ». Tant qu'il n'est pas voté, ce n'est pas encore une loi : c'est un texte, préparé par le Gouvernement et adopté en Conseil des ministres.</p>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span>
+        <code>Texte A : projet de loi (il vient du Gouvernement)</code>
+        <code>Texte B : proposition de loi (elle vient d'un parlementaire)</code>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> <span class="res">Le Parlement : l'Assemblée nationale et le Sénat.</span> (corrigé du manuel, question 4)
+        <p class="conclu">Projet ou proposition, seul le Parlement vote la loi.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 4 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 4</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">La fiche de révision d'Hugo</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Hugo a écrit sur sa fiche de révision (question 5 du manuel) : « le pouvoir exécutif est représenté par les tribunaux : les juges et les magistrats ». Léa relit la fiche et fronce les sourcils.
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Dis si Hugo a raison. Justifie avec le document 1.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Indique qui représente le pouvoir exécutif.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Indique quel pouvoir les juges représentent.</p></div>
+      <div class="question"><span class="q-num">4</span><p>Cite le texte de 1789 qui prévoit la séparation des pouvoirs.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> relis la colonne « pouvoir exécutif » du document 1.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> <span class="res">Non.</span> D'après le document 1, les tribunaux représentent le pouvoir judiciaire, pas l'exécutif.
+        <p class="conclu">Attention : le corrigé du manuel (question 5) contient la même erreur que la fiche d'Hugo. Il répond « les tribunaux : les juges et les magistrats ». La bonne réponse est celle du document 1, ci-dessous.</p>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> <span class="res">Le Président de la République et le Gouvernement (premier ministre et ministres).</span>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> Le pouvoir judiciaire : ils contrôlent l'application des lois et sanctionnent leur non-respect.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">4</span> La Déclaration des droits de l'homme et du citoyen de 1789 (article 16).
+      </div>
+    </div>
+  </div>
+</details>
+
+<hr class="section-sep">
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOC 2 – LA CONSTITUTION (séance 2)
+══════════════════════════════════════════════════════════ -->
+<div class="bloc-titre" id="constitution" style="margin-top:40px">
+  <span class="icone">📜</span>
+  <h2><small>Séance 2 · 1 h</small>Bloc 2 – La Constitution, la règle du jeu</h2>
+</div>
+
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Constitution = ensemble de textes qui expliquent comment fonctionne la République et comment s'organise la vie politique en France.</code>
+  <code>C'est la norme la plus élevée : toutes les autres règles de droit doivent la respecter.</code>
+  <code>Conseil constitutionnel = il vérifie que les lois votées respectent la Constitution.</code>
+  <code>Constitution actuelle : 4 octobre 1958 (Ve République). Première Constitution : 1791.</code>
+  <p class="note">Vidéo du manuel (partie 2. A. a) : « La politique expliquée simplement #1 : la règle du jeu », jusqu'à 5'37''. À regarder ensemble avant les exercices 5 à 8.</p>
+</div>
+
+<!-- EX 5 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 5</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Le règlement du concours</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Léa inscrit Hugo à un concours de la meilleure baguette. Le règlement du concours dit qui organise, qui juge et quelles règles respecter. Léa explique : « la Constitution, c'est un peu le règlement du pays » (questions 6 et 7 du manuel).
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Explique ce qu'est la Constitution.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Indique l'importance de la Constitution par rapport aux autres règles de droit.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Complète la phrase : « une loi ne peut pas aller … la Constitution ».</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> pense à une pyramide. La Constitution est tout en haut.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> Corrigé du manuel : c'est un ensemble de textes juridiques qui expliquent comment doit fonctionner la République et comment s'organise la vie politique en France.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> <span class="res">C'est la norme la plus élevée du pays : toutes les autres règles de droit doivent la respecter.</span>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> <code>Une loi ne peut pas aller contre la Constitution.</code>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 6 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 6</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Le gardien de la Constitution</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Karim lit dans le document 2 que le Conseil constitutionnel a examiné une loi le 21 janvier 2022. Il pose une question à Léa : « et si une loi disait que seuls les hommes peuvent être boulangers ? » (questions 8 et 9 du manuel ; la loi imaginée par Karim est fictive).
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Indique le rôle du Conseil constitutionnel.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Explique l'expression « loi anticonstitutionnelle ».</p></div>
+      <div class="question"><span class="q-num">3</span><p>Dis si la loi imaginée par Karim respecterait la Constitution. Justifie.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> le préambule de la Constitution reprend le préambule de 1946, qui garantit l'égalité des droits entre les femmes et les hommes.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> Corrigé du manuel : il est chargé de vérifier que les lois votées sont compatibles avec la Constitution.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> <span class="res">C'est une loi qui ne respecte pas la Constitution.</span>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> <span class="res">Non.</span> Elle serait anticonstitutionnelle : le préambule de 1946, qui fait partie du préambule de la Constitution, garantit à la femme des droits égaux à ceux de l'homme dans tous les domaines.
+        <p class="conclu">Le Conseil constitutionnel empêcherait cette loi de s'appliquer.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 7 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 7</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Le quiz d'Inès</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Pendant le rangement du magasin, Inès fait réviser Hugo avec un petit quiz sur la Constitution (questions 10 à 13 du manuel).
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Donne l'année de la première Constitution en France.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Donne la date de la Constitution actuelle.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Indique qui est à l'origine de la Constitution actuelle, et pourquoi.</p></div>
+      <div class="question"><span class="q-num">4</span><p>Cite les trois textes du préambule de la Constitution.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> les trois textes du préambule datent de 1789, 1946 et 2004.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">1791.</span></div>
+      <div class="corr-etape"><span class="c-num">2</span> <span class="res">La Constitution du 4 octobre 1958.</span></div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> Corrigé du manuel : Charles de Gaulle, pour instaurer la Ve République.
+        <p class="conclu">Précision : le texte a été préparé par le gouvernement du général de Gaulle, puis approuvé par les Français par référendum le 28 septembre 1958.</p>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">4</span>
+        <code>La Déclaration des droits de l'homme et du citoyen (1789)</code>
+        <code>Le préambule de la Constitution de 1946</code>
+        <code>La Charte de l'environnement de 2004</code>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 8 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 8</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">La vitrine du 14 juillet</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Pour le 14 juillet, Léa décore la vitrine du Fournil avec des pains décorés en bleu, blanc, rouge. Elle veut aussi écrire la devise de la République sur l'ardoise. Hugo propose de diffuser « le Chant du départ » comme hymne national (question 14 du manuel).
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Cite les trois symboles de la République énoncés dans la Constitution.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Écris la devise que Léa doit noter sur l'ardoise.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Corrige la proposition d'Hugo.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> un drapeau, un chant, trois mots.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> Corrigé du manuel :
+        <code>Les couleurs du drapeau français : bleu, blanc, rouge</code>
+        <code>L'hymne national : la Marseillaise</code>
+        <code>La devise nationale : Liberté, Égalité, Fraternité</code>
+      </div>
+      <div class="corr-etape"><span class="c-num">2</span> <span class="res"><em>« Liberté, Égalité, Fraternité »</em></span></div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> L'hymne national est la Marseillaise, pas le Chant du départ.
+        <p class="conclu">Ces symboles sont écrits dans l'article 2 de la Constitution.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<hr class="section-sep">
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOC 3 – LA LOI (séance 3)
+══════════════════════════════════════════════════════════ -->
+<div class="bloc-titre" id="loi" style="margin-top:40px">
+  <span class="icone">⚖️</span>
+  <h2><small>Séance 3 · 1 h</small>Bloc 3 – La loi</h2>
+</div>
+
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Loi = règle juridique écrite votée par le Parlement. L'Assemblée nationale et le Sénat doivent l'accepter dans les mêmes termes (navette parlementaire).</code>
+  <code>Obligatoire : elle s'impose à tous, sous peine de sanctions.</code>
+  <code>Abstraite et égalitaire : elle s'adresse à toute la population, pas à une personne en particulier.</code>
+  <code>Elle s'applique après la promulgation (autorisation du Président de la République) et la publication au Journal officiel.</code>
+  <p class="note">Article 6 de la Déclaration de 1789 : <em>« la loi doit être la même pour tous, soit qu'elle protège, soit qu'elle punisse »</em> (manuel, partie 2. A. b et document 2).</p>
+</div>
+
+<!-- EX 9 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 9</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Une loi pour le mot « boulangerie »</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Karim remarque qu'un terminal de cuisson vient d'ouvrir en face. Il cuit des pâtons livrés surgelés. Léa explique la règle :
+      <div class="table-wrap">
+        <table class="tableau-donnees">
+          <tr><th>Texte</th><th>Ce qu'il prévoit</th></tr>
+          <tr><td class="num">Loi n° 98-405 du 25 mai 1998</td><td>Seuls les professionnels qui assurent eux-mêmes, sur le lieu de vente, le pétrissage, la fermentation, la mise en forme et la cuisson peuvent utiliser le mot « boulangerie ». La pâte et le pain ne doivent être surgelés ou congelés à aucun moment.</td></tr>
+        </table>
+      </div>
+      Hugo demande : « cette loi, c'est seulement pour les petites boulangeries comme la nôtre ? »
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Indique qui a voté cette loi.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Dis si le terminal de cuisson peut écrire « boulangerie » sur son enseigne. Justifie.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Cite le caractère de la loi qui permet de répondre à Hugo, puis réponds-lui.</p></div>
+      <div class="question"><span class="q-num">4</span><p>Explique ce qui peut arriver au terminal s'il ne respecte pas la loi.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> relis le mémo : obligatoire, abstraite, égalitaire.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">Le Parlement (Assemblée nationale et Sénat).</span></div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> <span class="res">Non.</span> Il ne pétrit pas, ne fait pas fermenter et ne façonne pas sur place, et il utilise des pâtons surgelés.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> La loi est <strong>abstraite et égalitaire</strong>.
+        <code>Non, Hugo : la loi s'adresse à tous les commerces qui vendent du pain, petits ou grands.</code>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">4</span> La loi est <strong>obligatoire</strong> : s'il ne la respecte pas, il peut être sanctionné.
+        <p class="conclu">Ce document n'est pas dans le manuel. Il a été ajouté pour appliquer la partie « b. la loi » au métier de boulanger. Le montant des sanctions n'est pas étudié ici.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 10 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 10</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Une vraie loi : le document 2</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Léa projette le <strong>document 2 du manuel</strong> : la loi du 22 janvier 2022 renforçant les outils de gestion de la crise sanitaire. Elle transforme le pass sanitaire en pass vaccinal au 24 janvier 2022 pour les activités du quotidien (restaurants, cinémas…), élargit les possibilités de contrôle, renforce les sanctions en cas de fraude et prolonge l'état d'urgence sanitaire dans plusieurs territoires d'outre-mer jusqu'au 31 mars 2022.
+      <div class="table-wrap">
+        <table class="tableau-donnees">
+          <tr><th>Date</th><th>Étape</th></tr>
+          <tr><td class="num">27 décembre 2021</td><td>Conseil des ministres</td></tr>
+          <tr><td class="num">27 décembre 2021</td><td>Dépôt au Parlement</td></tr>
+          <tr><td class="num">16 janvier 2022</td><td>Examen et adoption définitive</td></tr>
+          <tr><td class="num">21 janvier 2022</td><td>Conseil constitutionnel</td></tr>
+          <tr><td class="num">22 janvier 2022</td><td>Promulgation</td></tr>
+          <tr><td class="num">23 janvier 2022</td><td>Publication au Journal officiel</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Cite les quatre objectifs de cette loi (question 15 du manuel).</p></div>
+      <div class="question"><span class="q-num">2</span><p>Dis si cette loi vient d'un projet ou d'une proposition de loi. Justifie (question 16 du manuel).</p></div>
+      <div class="question"><span class="q-num">3</span><p>Indique qui a adopté la loi le 16 janvier 2022.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> regarde la première étape du tableau : qui se réunit en Conseil des ministres ?</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> Corrigé du manuel :
+        <code>Transformer le pass sanitaire en pass vaccinal à partir du 24 janvier 2022</code>
+        <code>Élargir les possibilités de contrôle</code>
+        <code>Renforcer les sanctions en cas de fraude</code>
+        <code>Prolonger l'état d'urgence jusqu'au 31 mars 2022 dans plusieurs territoires d'outre-mer</code>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> <span class="res">C'est un projet de loi, car il vient du Conseil des ministres (Gouvernement).</span>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> Le Parlement (Assemblée nationale et Sénat).
+        <p class="conclu">Le document 2 parle de la crise sanitaire, pas de la boulangerie. Il est gardé tel quel car il montre les vraies étapes d'une loi, avec des dates réelles.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 11 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 11</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Du vote au Journal officiel</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Hugo pense qu'une loi s'applique dès que le Parlement l'a votée. Léa reprend le tableau du document 2 (exercice 10) pour lui montrer les dernières étapes (questions 17 à 19 du manuel).
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Indique ce qu'a fait le Conseil constitutionnel le 21 janvier 2022.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Explique ce que signifie la promulgation du 22 janvier 2022.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Dis si la loi est applicable dès le 22 janvier 2022. Justifie.</p></div>
+      <div class="question"><span class="q-num">4</span><p>Remets dans l'ordre : promulgation – vote du Parlement – publication au Journal officiel – Conseil des ministres – contrôle du Conseil constitutionnel.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> pour s'appliquer à tous, une loi doit être connue de tous. Où est-elle publiée ?</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> Il a vérifié que la loi respecte la Constitution.</div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> Corrigé du manuel : le Président de la République a donné son autorisation pour que la loi soit publiée et appliquée.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> <span class="res">Non.</span> Elle doit d'abord être publiée au Journal officiel, le 23 janvier 2022 (corrigé du manuel).
+        <p class="conclu">Précision : en principe, une loi entre en vigueur le lendemain de sa publication au Journal officiel, sauf si elle fixe une autre date (article 1 du Code civil). Ici, le pass vaccinal s'applique au 24 janvier 2022, comme l'indique le document 2.</p>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">4</span>
+        <code>Conseil des ministres → vote du Parlement → contrôle du Conseil constitutionnel → promulgation → publication au Journal officiel</code>
+      </div>
+    </div>
+  </div>
+</details>
+
+<hr class="section-sep">
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOC 4 – LES AUTRES SOURCES ET LA HIÉRARCHIE (séance 4)
+══════════════════════════════════════════════════════════ -->
+<div class="bloc-titre" id="autres" style="margin-top:40px">
+  <span class="icone">🔺</span>
+  <h2><small>Séance 4 · 1 h</small>Bloc 4 – Les autres sources et la hiérarchie des normes</h2>
+</div>
+
+<div class="memo">
+  <div class="memo-titre">🗂 mémo</div>
+  <code>Ordonnance = texte du Gouvernement (Conseil des ministres), après accord du Parlement, pour agir vite. Valeur inférieure à la loi.</code>
+  <code>Décret = texte du Président de la République ou du premier ministre, pour préciser comment appliquer une loi.</code>
+  <code>Arrêté = texte d'un ministre (ministériel), d'un préfet (préfectoral) ou d'un maire (municipal).</code>
+  <code>Sources non écrites : la coutume (pratique ancienne devenue obligatoire), les usages (règles professionnelles ou locales), la jurisprudence (décisions des tribunaux).</code>
+  <code>Hiérarchie des normes : chaque règle doit respecter la règle qui est au-dessus d'elle.</code>
+  <p class="note">Manuel, partie 2. A. c (encadrés « les ordonnances » et « les règlements »), 2. B (tableau des sources non écrites) et 2. C (pyramide).</p>
+</div>
+
+<!-- EX 12 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 12</span>
+    <span class="badge badge-1">⬆ décollage</span>
+    <span class="exo-titre-txt">Le classeur réglementation du fournil</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Léa range son classeur « réglementation ». Elle y trouve quatre textes :
+      <div class="table-wrap">
+        <table class="tableau-donnees">
+          <tr><th>N°</th><th>Texte</th></tr>
+          <tr><td class="num">A</td><td>Décret n° 93-1074 du 13 septembre 1993 : il définit le « pain de tradition française » (jamais surgelé, sans additif).</td></tr>
+          <tr><td class="num">B</td><td>Ordonnances de septembre 2017 : elles modifient le Code du travail.</td></tr>
+          <tr><td class="num">C</td><td>Arrêté du préfet du département : il fixe le jour de fermeture hebdomadaire des boulangeries.</td></tr>
+          <tr><td class="num">D</td><td>Arrêté du maire : il autorise le Fournil à installer deux tables sur le trottoir.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Indique quelle autorité a pris chaque texte.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Classe les textes : ordonnance ou règlement ?</p></div>
+      <div class="question"><span class="q-num">3</span><p>Dis si ces textes ont une valeur supérieure ou inférieure à la loi.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> les règlements regroupent les décrets et les arrêtés.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> et <span class="c-num">2</span>
+        <table class="tableau-corr">
+          <tr><th>Texte</th><th>Autorité</th><th>Catégorie</th></tr>
+          <tr><td>A – décret</td><td>Gouvernement (premier ministre)</td><td class="val">Règlement</td></tr>
+          <tr><td>B – ordonnances</td><td>Gouvernement (Conseil des ministres), après accord du Parlement</td><td class="val">Ordonnance</td></tr>
+          <tr><td>C – arrêté préfectoral</td><td>Préfet</td><td class="val">Règlement</td></tr>
+          <tr><td>D – arrêté municipal</td><td>Maire</td><td class="val">Règlement</td></tr>
+        </table>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> <span class="res">Inférieure à la loi.</span> Les règlements sont aussi inférieurs aux ordonnances.
+        <p class="conclu">Le manuel dit que les ordonnances sont applicables dès la signature du Président. Pour être précis : elles doivent aussi être publiées au Journal officiel.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 13 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 13</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Quel arrêté ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Hugo doit relier des situations au bon type d'arrêté (question 20 du manuel, transposée à la boulangerie) :
+      <div class="table-wrap">
+        <table class="tableau-donnees">
+          <tr><th>N°</th><th>Situation</th></tr>
+          <tr><td class="num">a</td><td>Le jour du marché, il est interdit de stationner sur la place, devant le Fournil.</td></tr>
+          <tr><td class="num">b</td><td>Dans tout le département, les boulangeries doivent fermer un jour par semaine.</td></tr>
+          <tr><td class="num">c</td><td>Dans toute la France, les commerces alimentaires de détail doivent respecter des règles d'hygiène fixées par l'arrêté du 21 décembre 2009.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Relie chaque situation à un arrêté : municipal, préfectoral ou ministériel.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Explique comment tu as trouvé la réponse.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> regarde l'étendue du territoire : une commune, un département, toute la France.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span>
+        <table class="tableau-corr">
+          <tr><th>Situation</th><th>Arrêté</th></tr>
+          <tr><td>a – marché sur la place</td><td class="val">Municipal (maire)</td></tr>
+          <tr><td>b – fermeture hebdomadaire</td><td class="val">Préfectoral (préfet)</td></tr>
+          <tr><td>c – hygiène dans toute la France</td><td class="val">Ministériel (ministres)</td></tr>
+        </table>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> Commune → maire ; département → préfet ; toute la France → ministre.
+        <p class="conclu">Adaptation du manuel : la question 20 range « l'état de catastrophe naturelle dans le département » dans l'arrêté préfectoral. C'est inexact : cet état est reconnu par un arrêté interministériel, signé par plusieurs ministres. Cette situation a été remplacée par la fermeture hebdomadaire des boulangeries, qui relève bien d'un arrêté préfectoral (article L3132-29 du Code du travail). Les deux autres situations du manuel (marché, fermeture de commerces au niveau national) sont gardées sous une forme adaptée.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 14 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 14</span>
+    <span class="badge badge-2">◆ intermédiaire</span>
+    <span class="exo-titre-txt">Coutume, usage ou jurisprudence ?</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Au fournil, Karim et Hugo discutent de règles qui ne sont écrites dans aucune loi (tableau « les sources non écrites » du manuel) :<br>
+      <strong>Situation 1</strong> : depuis dix ans, Léa verse chaque année la même prime de fin d'année à tous ses salariés. Karim pense qu'elle est désormais obligée de la verser.<br>
+      <strong>Situation 2</strong> : un litige entre une boulangerie et un fournisseur est tranché par un tribunal. D'autres juges s'inspirent ensuite de cette décision.<br>
+      <strong>Situation 3</strong> : Hugo affirme : « une coutume peut aller contre la loi ».
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Nomme la source de droit de la situation 1.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Nomme la source de droit de la situation 2.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Dis si Hugo a raison (situation 3). Justifie.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> les usages sont nombreux en droit du travail ; la jurisprudence vient des tribunaux.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> <span class="res">Un usage.</span> C'est une règle professionnelle qui s'impose parce qu'elle est répétée et qu'on la croit obligatoire.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> <span class="res">La jurisprudence.</span> C'est la règle rendue par les tribunaux pour adapter la loi à un cas concret.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> <span class="res">Non.</span> La coutume est une source de droit à condition de ne pas aller à l'encontre de la loi.
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 15 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 15</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">La pyramide du fournil</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Léa affiche au fournil une pyramide vide. Hugo doit la compléter avec : jurisprudence – loi – règlements (décrets et arrêtés) – Constitution – coutumes et usages – ordonnances (question 21 du manuel).
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Classe les six sources du haut vers le bas de la pyramide.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Explique la règle de la hiérarchie des normes.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Place dans la pyramide : la loi du 25 mai 1998 (ex. 9), le décret du 13 septembre 1993 et l'arrêté préfectoral de fermeture (ex. 12).</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> en haut, la règle la plus forte ; en bas, la dernière source selon le manuel.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> Corrigé du manuel, du haut vers le bas :
+        <code>1. Constitution</code>
+        <code>2. Loi</code>
+        <code>3. Ordonnances</code>
+        <code>4. Règlements (décrets et arrêtés)</code>
+        <code>5. Coutumes et usages</code>
+        <code>6. Jurisprudence</code>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> Chaque règle doit respecter la règle qui lui est supérieure.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span> Loi du 25 mai 1998 → étage « loi » ; décret de 1993 et arrêté préfectoral → étage « règlements ».
+        <p class="conclu">Cette pyramide ne concerne que le droit national, comme le prévoit le référentiel.</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<hr class="section-sep">
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOC 5 – SUJETS TYPE EXAMEN EP1 (séance 5)
+══════════════════════════════════════════════════════════ -->
+<div class="bloc-titre" id="examen" style="margin-top:40px">
+  <span class="icone">🏁</span>
+  <h2><small>Séance 5 · 1 h</small>Bloc 5 – Sujets type examen EP1</h2>
+</div>
+
+<div class="memo">
+  <div class="memo-titre">🗂 méthode pour l'examen</div>
+  <code>1. Lire la situation et souligner qui a pris la règle (Parlement, Gouvernement, préfet, maire, tribunal)</code>
+  <code>2. Nommer la source de droit : Constitution, loi, ordonnance, décret, arrêté, coutume, jurisprudence</code>
+  <code>3. Justifier avec la hiérarchie : « cette règle est inférieure à… donc elle doit respecter… »</code>
+  <p class="note">L'épreuve EP1 est écrite. Elle part d'une situation professionnelle commune à la technologie, aux sciences appliquées et à la gestion appliquée. La partie gestion appliquée dure environ 30 minutes.</p>
+</div>
+
+<!-- EX 16 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 16</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Sujet court : l'enseigne d'en face (10 min)</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Le terminal de cuisson en face du Fournil affiche « boulangerie » sur son enseigne. Son gérant dit à Karim : « le maire m'a promis un arrêté qui m'autorise à garder ce mot ». Léa s'appuie sur la loi du 25 mai 1998 (exercice 9).
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Nomme la source de droit qui protège le mot « boulangerie ».</p></div>
+      <div class="question"><span class="q-num">2</span><p>Cite deux conditions pour utiliser ce mot.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Nomme le type de texte que prendrait le maire.</p></div>
+      <div class="question"><span class="q-num">4</span><p>Dis si cet arrêté pourrait autoriser le terminal à garder le mot. Justifie avec la hiérarchie des normes.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> compare la place de la loi et celle de l'arrêté dans la pyramide.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">La loi (loi du 25 mai 1998), votée par le Parlement.</span></div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> Deux conditions parmi :
+        <code>Pétrir, faire fermenter, façonner et cuire soi-même, sur le lieu de vente</code>
+        <code>Ne jamais surgeler ni congeler la pâte ou le pain</code>
+      </div>
+      <div class="corr-etape"><span class="c-num">3</span> Un arrêté municipal (un règlement).</div>
+      <div class="corr-etape">
+        <span class="c-num">4</span> <span class="res">Non.</span> L'arrêté municipal est inférieur à la loi. Il doit respecter la loi et ne peut pas la contredire.
+        <p class="conclu">Le gérant ne peut pas garder le mot « boulangerie ».</p>
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 17 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 17</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Sujet court : le jour de fermeture (10 min)</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Le Fournil est soumis à l'arrêté du préfet qui impose aux boulangeries du département un jour de fermeture par semaine (exercice 12, texte C). Hugo dit : « c'est une loi du Parlement ». Inès ajoute : « c'est le maire qui l'a décidé ».
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Nomme le type de texte et l'autorité qui l'a pris.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Corrige l'erreur d'Hugo, puis celle d'Inès.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Indique à quel étage de la pyramide se place ce texte.</p></div>
+      <div class="question"><span class="q-num">4</span><p>Dis si ce texte doit respecter le Code du travail, qui est une loi. Justifie.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> qui est le représentant de l'État dans le département ?</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape"><span class="c-num">1</span> <span class="res">Un arrêté préfectoral, pris par le préfet.</span></div>
+      <div class="corr-etape">
+        <span class="c-num">2</span>
+        <code>Hugo : ce n'est pas une loi, car il n'a pas été voté par le Parlement.</code>
+        <code>Inès : ce n'est pas le maire, car le texte concerne tout le département.</code>
+      </div>
+      <div class="corr-etape"><span class="c-num">3</span> L'étage « règlements (décrets et arrêtés) ».</div>
+      <div class="corr-etape">
+        <span class="c-num">4</span> <span class="res">Oui.</span> L'arrêté est inférieur à la loi : il doit la respecter. Il est d'ailleurs pris sur la base d'un article du Code du travail (L3132-29).
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- EX 18 -->
+<details class="exo-card">
+  <summary class="exo-header">
+    <span class="exo-num">Ex. 18</span>
+    <span class="badge badge-exam">★ examen</span>
+    <span class="exo-titre-txt">Sujet complet : la baguette de tradition (30 min)</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="exo-body">
+    <div class="contexte">
+      Léa veut lancer une baguette de tradition au Fournil. Elle prépare une affiche pour le magasin et demande à Hugo de l'aider à comprendre les règles qui s'appliquent.
+      <div class="table-wrap">
+        <table class="tableau-donnees">
+          <tr><th>Annexe</th><th>Contenu</th></tr>
+          <tr><td class="num">1</td><td>Décret n° 93-1074 du 13 septembre 1993 : le « pain de tradition française » ne doit jamais être surgelé et ne doit contenir aucun additif.</td></tr>
+          <tr><td class="num">2</td><td>Loi du 25 mai 1998 : appellation « boulangerie » réservée aux professionnels qui assurent eux-mêmes, sur place, toutes les étapes de fabrication.</td></tr>
+          <tr><td class="num">3</td><td>Arrêté du maire : interdiction de poser des panneaux publicitaires sur le trottoir de la rue principale.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="questions">
+      <div class="question"><span class="q-num">1</span><p>Nomme les trois pouvoirs et indique lequel vote les lois.</p></div>
+      <div class="question"><span class="q-num">2</span><p>Indique quelle règle de droit est la plus élevée en France et quel organe vérifie que les lois la respectent.</p></div>
+      <div class="question"><span class="q-num">3</span><p>Nomme la source de droit de chaque annexe et l'autorité qui l'a prise.</p></div>
+      <div class="question"><span class="q-num">4</span><p>Explique pourquoi le décret de l'annexe 1 existe à côté des lois.</p></div>
+      <div class="question"><span class="q-num">5</span><p>Cite les deux étapes nécessaires, après le vote, pour qu'une loi s'applique.</p></div>
+      <div class="question"><span class="q-num">6</span><p>Léa veut poser son affiche sur un chevalet devant le magasin, rue principale. Dis si elle le peut. Justifie avec l'annexe 3.</p></div>
+      <div class="question"><span class="q-num">7</span><p>Classe les trois annexes de la plus forte à la plus faible.</p></div>
+      <div class="question"><span class="q-num">8</span><p>Nomme la source de droit qui naît des décisions des tribunaux.</p></div>
+    </div>
+    <div class="ordre-grandeur"><strong>Coup de pouce :</strong> utilise la pyramide de l'exercice 15 et le mémo du bloc 4.</div>
+    <button class="btn-corrige" onclick="toggleCorr(this)">✅ Voir la correction</button>
+    <div class="correction">
+      <div class="corr-etape">
+        <span class="c-num">1</span> Législatif, exécutif et judiciaire. <span class="res">Le pouvoir législatif (Parlement) vote les lois.</span>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">2</span> <span class="res">La Constitution.</span> Le Conseil constitutionnel vérifie que les lois la respectent.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">3</span>
+        <table class="tableau-corr">
+          <tr><th>Annexe</th><th>Source</th><th>Autorité</th></tr>
+          <tr><td>1</td><td class="val">Décret (règlement)</td><td>Gouvernement (premier ministre)</td></tr>
+          <tr><td>2</td><td class="val">Loi</td><td>Parlement</td></tr>
+          <tr><td>3</td><td class="val">Arrêté municipal (règlement)</td><td>Maire</td></tr>
+        </table>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">4</span> Un décret précise les conditions de mise en œuvre d'une loi : il donne les détails pratiques que la loi ne donne pas.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">5</span> <code>La promulgation par le Président de la République, puis la publication au Journal officiel.</code>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">6</span> <span class="res">Non.</span> L'arrêté municipal interdit les panneaux publicitaires sur ce trottoir. Il s'impose à tous les commerçants de la rue.
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">7</span> <code>Annexe 2 (loi) → annexe 1 (décret) → annexe 3 (arrêté municipal)</code>
+        <p class="conclu">Le décret et l'arrêté sont tous deux des règlements ; le décret, pris au niveau national, est placé avant l'arrêté municipal.</p>
+      </div>
+      <div class="corr-etape">
+        <span class="c-num">8</span> <span class="res">La jurisprudence.</span>
+      </div>
+    </div>
+  </div>
+</details>
+
+</main>
+
+<footer class="site-footer">
+  CAP boulanger – Gestion appliquée &nbsp;|&nbsp; Chapitre 16 : les sources du droit national &nbsp;|&nbsp; 18 exercices progressifs
+</footer>
+
+<script>
+function toggleCorr(btn) {
+  const corr = btn.nextElementSibling;
+  const isVisible = corr.classList.contains('visible');
+  corr.classList.toggle('visible', !isVisible);
+  btn.textContent = isVisible ? '✅ Voir la correction' : '🔒 Masquer la correction';
+}
+</script>
+</body>
+</html>
